@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda Kingsman</title>
+
+<style>
+/* PALETA ESTILO KINGSMAN */
+:root{
+  --oro:#d4af37;
+  --oro-brillante:#f5d676;
+  --negro:#0a0a0a;
+  --carbon:#111;
+  --gris-elegante:#1a1a1a;
+  --texto:#f2f2f2;
+  --blanco:#fff;
+}
+
+body{
+  font-family:"Georgia",serif;
+  background-color:var(--negro);
+  color:var(--texto);
+  margin:0;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(90deg,var(--negro),var(--carbon));
+  color:var(--oro);
+  padding:30px;
+  text-align:center;
+  border-bottom:3px solid var(--oro);
+}
+header h1{margin:0;font-size:2.8rem;}
+header p{margin:0;color:var(--oro-brillante);}
+
+/* NAV */
+nav{
+  background:var(--carbon);
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  padding:12px;
+  flex-wrap:wrap;
+  border-bottom:2px solid var(--oro);
+}
+nav a{
+  color:var(--oro);
+  text-decoration:none;
+  padding:10px 20px;
+  border-radius:5px;
+  font-weight:bold;
+  cursor:pointer;
+  border:1px solid transparent;
+  transition:.3s;
+}
+nav a:hover{
+  background:var(--gris-elegante);
+  border-color:var(--oro);
+  box-shadow:0 0 12px var(--oro);
+}
+
+/* CONTENEDOR */
+.contenido{
+  background:var(--gris-elegante);
+  padding:25px;
+  margin:30px auto;
+  border-radius:15px;
+  max-width:950px;
+  border:2px solid var(--oro);
+  box-shadow:0 0 25px rgba(212,175,55,.3);
+}
+
+/* CATALOGO */
+.catalogo{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  padding:10px;
+}
+.producto{
+  background:var(--carbon);
+  border-radius:12px;
+  text-align:center;
+  padding:15px;
+  border:2px solid transparent;
+  transition:.3s;
+}
+.producto:hover{
+  transform:scale(1.05);
+  border-color:var(--oro);
+  box-shadow:0 0 20px var(--oro);
+}
+.producto img{
+  width:100%;
+  border-radius:10px;
+  border:2px solid var(--oro);
+}
+
+/* BOTONES */
+.btn{
+  background:var(--oro);
+  color:var(--negro);
+  font-weight:bold;
+  border:1px solid var(--oro-brillante);
+  padding:10px 20px;
+  border-radius:8px;
+  cursor:pointer;
+  transition:.3s;
+}
+.btn:hover{
+  background:var(--oro-brillante);
+  box-shadow:0 0 12px var(--oro);
+  transform:translateY(-2px);
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border-radius:6px;
+  border:1px solid var(--oro);
+  background:var(--negro);
+  color:white;
+}
+
+#ticketContenido{
+  background:var(--carbon);
+  padding:15px;
+  border-radius:10px;
+  border-left:4px solid var(--oro);
+}
+
+footer{
+  background:var(--carbon);
+  color:var(--oro);
+  text-align:center;
+  padding:15px;
+  border-top:2px solid var(--oro);
+}
+
+section{display:none;}
+#inicio{display:block;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Kingsman Tailor Shop</h1>
+  <p>La Elegancia es un Honor</p>
+</header>
+
+<nav>
+  <a onclick="mostrar('inicio')">Inicio</a>
+  <a onclick="mostrar('ofertas')">Ofertas</a>
+  <a onclick="mostrar('novedades')">Novedades</a>
+  <a onclick="mostrar('nosotros')">Nosotros</a>
+  <a onclick="mostrar('ayuda')">Ayuda</a>
+  <a onclick="mostrar('contacto')">Contacto</a>
+  <a onclick="mostrar('carrito')">Carrito</a>
+</nav>
+
+<!-- ============================= -->
+<!-- 🔥 CATALOGO PRINCIPAL -->
+<!-- ============================= -->
+<section id="inicio" class="contenido">
+  <h2>Trajes Kingsman</h2>
+
+  <div class="catalogo">
+
+    <div class="producto">
+      <img src="https://images.nexusapp.co/assets/34/5c/53/353801243.jpg">
+      <h3>Traje Kingsman Azul Marino</h3>
+      <p>$8500 MXN</p>
+      <button class="btn" onclick="agregar('Traje Kingsman Azul Marino',8500)">Agregar</button>
+    </div>
+
+    <div class="producto">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXHckScn8Am6uKGeIlJVZCHE83_quG20rfgg&s">
+      <h3>Traje Príncipe de Gales</h3>
+      <p>$9200 MXN</p>
+      <button class="btn" onclick="agregar('Traje Príncipe de Gales',9200)">Agregar</button>
+    </div>
+
+    <div class="producto">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz_ZpMQKp9CXiV8cQ-c23szFhw7LDms6YHQw&s">
+      <h3>Smoking Kingsman Negro</h3>
+      <p>$10500 MXN</p>
+      <button class="btn" onclick="agregar('Smoking Kingsman Negro',10500)">Agregar</button>
+    </div>
+
+    <div class="producto">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWApvjR7Nmblu1I8nuHbfhb_HQzUo_KiWJqw&s">
+      <h3>Traje Kingsman Camel</h3>
+      <p>$8800 MXN</p>
+      <button class="btn" onclick="agregar('Traje Kingsman Camel',8800)">Agregar</button>
+    </div>
+
+    <div class="producto">
+      <img src="https://i.etsystatic.com/45491344/r/il/cf7229/5225929590/il_570xN.5225929590_bpgr.jpg">
+      <h3>Traje Rayas Finas</h3>
+      <p>$9000 MXN</p>
+      <button class="btn" onclick="agregar('Traje Rayas Finas',9000)">Agregar</button>
+    </div>
+
+    <div class="producto">
+      <img src="https://i.pinimg.com/736x/f7/b2/dd/f7b2dd30e9751c709dac62602eb0a48e.jpg">
+      <h3>Traje Burgundy</h3>
+      <p>$9500 MXN</p>
+      <button class="btn" onclick="agregar('Traje Burgundy',9500)">Agregar</button>
+    </div>
+
+    <div class="producto">
+      <img src="https://i.pinimg.com/236x/ab/72/cb/ab72cb41946c2d23753c0e88e4a768d8.jpg">
+      <h3>Traje Kingsman de Gala</h3>
+      <p>$11000 MXN</p>
+      <button class="btn" onclick="agregar('Traje Gala Kingsman',11000)">Agregar</button>
+    </div>
+
+    <div class="producto">
+      <img src="https://images.asos-media.com/products/traje-gris-carbon-de-corte-entallado-de-tejido-panama-de-mezcla-de-lana-de-asos-design/206376508-3?$n_640w$&wid=513&fit=constrain">
+      <h3>Traje Gris Carbón</h3>
+      <p>$8700 MXN</p>
+      <button class="btn" onclick="agregar('Traje Gris Carbón',8700)">Agregar</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================= -->
+<!-- 🔥 OFERTAS CON PRODUCTOS -->
+<!-- ============================= -->
+<section id="ofertas" class="contenido">
+  <h2>🔥 Ofertas Especiales</h2>
+
+  <div class="catalogo">
+
+    <div class="producto">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh2L_PU_C3DHvxPNMRYnAWZeIajdavHoCZCQ&s">
+      <h3>Traje Clásico Gris (Oferta)</h3>
+      <p><del>$7500</del> <strong>$6000 MXN</strong></p>
+      <button class="btn" onclick="agregar('Traje Gris Oferta',6000)">Agregar</button>
+    </div>
+
+    <div class="producto">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrcxuhL2_zvlYD1dpBk4P7R73MXw-v7XRH1w&s">
+      <h3>Traje Camel (Oferta)</h3>
+      <p><del>$8800</del> <strong>$7200 MXN</strong></p>
+      <button class="btn" onclick="agregar('Traje Camel Oferta',7200)">Agregar</button>
+    </div>
+
+    <div class="producto">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj4ER4Xnlvt7D43FRxyTqnsTR8gyN9C5LOkQ&s">
+      <h3>Smoking Negro (Descuento)</h3>
+      <p><del>$10500</del> <strong>$9300 MXN</strong></p>
+      <button class="btn" onclick="agregar('Smoking Negro Oferta',9300)">Agregar</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================= -->
+<!-- ✨ NOVEDADES CON PRODUCTOS -->
+<!-- ============================= -->
+<section id="novedades" class="contenido">
+  <h2>✨ Nuevas Llegadas Kingsman</h2>
+
+  <div class="catalogo">
+
+    <div class="producto">
+      <img src="https://i.etsystatic.com/40352397/r/il/06e0e9/5917318039/il_fullxfull.5917318039_lres.jpg">
+      <h3>Traje Rayas Azul Oscuro</h3>
+      <p>$9800 MXN</p>
+      <button class="btn" onclick="agregar('Traje Rayas Azul Oscuro',9800)">Agregar</button>
+    </div>
+
+    <div class="producto">
+      <img src="https://i.etsystatic.com/37668241/r/il/022fc8/6141497795/il_570xN.6141497795_pg6x.jpg">
+      <h3>Traje Gris Claro Premium</h3>
+      <p>$9400 MXN</p>
+      <button class="btn" onclick="agregar('Traje Gris Claro Premium',9400)">Agregar</button>
+    </div>
+
+    <div class="producto">
+      <img src="https://i.pinimg.com/474x/7f/ef/b7/7fefb733774b6eb207b4d07cf29ed17b.jpg">
+      <h3>Traje Oxford Kingsman</h3>
+      <p>$11200 MXN</p>
+      <button class="btn" onclick="agregar('Traje Oxford Kingsman',11200)">Agregar</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================= -->
+<!-- RESTO DE SECCIONES (NOSOTROS, AYUDA, ETC.) -->
+<!-- ============================= -->
+
+<section id="nosotros" class="contenido">
+  <h2>📌 Sobre Nosotros</h2>
+  <p>Inspirados en la sastrería británica más exclusiva.</p>
+</section>
+
+<section id="ayuda" class="contenido">
+  <h2>❓ Ayuda</h2>
+  <ul>
+    <li>Envíos internacionales</li>
+    <li>Devoluciones y ajustes</li>
+    <li>Pagos seguros</li>
+  </ul>
+</section>
+
+<section id="contacto" class="contenido">
+  <h2>📞 Contáctanos</h2>
+  <p>Email: kingsman@tailor.com</p>
+  <p>Tel: 899 123 4567</p>
+</section>
+
+<section id="carrito" class="contenido">
+  <h2>🛒 Carrito</h2>
+  <div id="items"></div>
+  <p><strong>Total:</strong> $<span id="total">0</span> MXN</p>
+  <button class="btn" onclick="mostrarFormulario()">Finalizar Pedido</button>
+</section>
+
+<section id="formulario" class="contenido" style="display:none;">
+  <h2>📄 Información de Envío</h2>
+
+  <label>Nombre:</label>
+  <input id="nombre">
+
+  <label>Dirección:</label>
+  <input id="direccion">
+
+  <label>Teléfono:</label>
+  <input id="telefono">
+
+  <button class="btn" onclick="generarTicket()">Generar Ticket</button>
+</section>
+
+<section id="ticket" class="contenido" style="display:none;">
+  <h2>🎟 Ticket</h2>
+  <div id="ticketContenido"></div>
+</section>
+
+<footer>
+  © 2025 Kingsman Tailor Shop
+</footer>
+
+<script>
+let total = 0;
+let items = document.getElementById("items");
+
+function agregar(nombre, precio){
+  let p = document.createElement("p");
+  p.textContent = nombre + " - $" + precio;
+  items.appendChild(p);
+  total += precio;
+  document.getElementById("total").textContent = total;
+}
+
+function mostrar(id){
+  document.querySelectorAll("section").forEach(s => s.style.display = "none");
+  document.getElementById(id).style.display = "block";
+}
+
+function mostrarFormulario(){
+  mostrar('formulario');
+}
+
+function generarTicket(){
+  let nombre = document.getElementById("nombre").value;
+  let direccion = document.getElementById("direccion").value;
+  let telefono = document.getElementById("telefono").value;
+
+  if(!nombre || !direccion || !telefono){
+    alert("Completa todos los campos");
+    return;
+  }
+
+  let html = `
+    <p><strong>Cliente:</strong> ${nombre}</p>
+    <p><strong>Dirección:</strong> ${direccion}</p>
+    <p><strong>Teléfono:</strong> ${telefono}</p>
+    <hr><h3>Productos:</h3>
+  `;
+
+  items.querySelectorAll("p").forEach(p=>{
+    html += `<p>${p.textContent}</p>`;
+  });
+
+  html += `<hr><h3>Total: $${total} MXN</h3>`;
+
+  document.getElementById("ticketContenido").innerHTML = html;
+
+  mostrar("ticket");
+}
+</script>
+
+</body>
+</html>
